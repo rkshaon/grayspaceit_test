@@ -32,6 +32,9 @@
           <!-- For success/fail messages -->
           <button type="submit" class="btn btn-primary" id="login-btn">Login</button>
         </form>
+        {% for message in messages %}
+          <p>{{ message }}</p>
+        {% endfor %}
       </div>
     </div>
     <!-- /.row -->
@@ -39,4 +42,3 @@
   </div>
   <!-- /.container -->
 {% endblock container %}
-

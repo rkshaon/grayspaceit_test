@@ -81,9 +81,13 @@
     <!-- /.container -->
     <script type="text/javascript">
       var form_fields = document.getElementsByTagName('input')
-      // console.log(form_fields)
-      // form_fields[3].dataValidationRequiredMessage="Please enter your password."
-      // form_fields[4].id = "confirm-password"
+      form_fields[1].placeholder = 'Please enter your first name.'
+      form_fields[2].placeholder = 'Please enter your last name.'
+      form_fields[3].placeholder = 'Please enter your username.'
+      form_fields[4].placeholder = 'Please enter your email.'
+      form_fields[5].placeholder = 'Please enter your password.'
+      form_fields[6].placeholder = 'Please confirm your password.'
+      console.log(form_fields)
       for(var field in form_fields){
         form_fields[field].className += ' form-control'
       }

@@ -14,24 +14,35 @@
     <!-- Content Row -->
     <div class="row">
       <div class="col-lg-4 mb-4">
-        <form name="sentMessage" id="contactForm" novalidate>
-          <div class="control-group form-group">
+        <!-- <form name="sentMessage" id="contactForm" novalidate> -->
+        <form action="" method="POST">
+          {% csrf_token %}
+          <!-- <div class="control-group form-group">
             <div class="controls">
               <label>Email*</label>
-              <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email.">
+              <input name="email" type="email" class="form-control" id="email" placeholder="Please enter your email.">
+              <p class="help-block"></p>
+            </div>
+          </div> -->
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Username*</label>
+              <input name="username" type="text" class="form-control" id="username" placeholder="Please enter your username.">
               <p class="help-block"></p>
             </div>
           </div>
           <div class="control-group form-group">
             <div class="controls">
               <label>Password*</label>
-              <input type="password" class="form-control" id="password" required data-validation-required-message="Please enter your password.">
+              <!-- <input name="password" type="password" class="form-control" id="password" required data-validation-required-message="Please enter your password."> -->
+              <input name="password" type="password" class="form-control" id="password" placeholder="Please enter your password.">
             </div>
           </div>
           <div id="success"></div>
           <!-- For success/fail messages -->
           <button type="submit" class="btn btn-primary" id="login-btn">Login</button>
         </form>
+        {{ form.errors }}
         {% for message in messages %}
           <p>{{ message }}</p>
         {% endfor %}

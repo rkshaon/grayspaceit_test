@@ -1,13 +1,24 @@
 from django.http import Http404
 from django.shortcuts import render, redirect
 # from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import CreateUserForm
 
 # LOGIN VIEW ENDPOINT
 
-def login(request):
-    return render(request, 'login.html')
+def loginPage(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        # email = request.POST.get('email')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('posts')
+    context = {}
+    return render(request, 'login.html', context)
 
 
 def register(request):

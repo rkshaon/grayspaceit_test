@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block container %}
+  <!-- Page Content -->
+  <div class="container" style="min-height: 80vh;">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">Login
+      <small>Form</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active">Login</li>
+    </ol>
+    <!-- Content Row -->
+    <div class="row">
+      <div class="col-lg-4 mb-4">
+        <form name="sentMessage" id="contactForm" novalidate>
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Email*</label>
+              <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email.">
+              <p class="help-block"></p>
+            </div>
+          </div>
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Password*</label>
+              <input type="password" class="form-control" id="password" required data-validation-required-message="Please enter your password.">
+            </div>
+          </div>
+          <div id="success"></div>
+          <!-- For success/fail messages -->
+          <button type="submit" class="btn btn-primary" id="login-btn">Login</button>
+        </form>
+      </div>
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+{% endblock container %}
+

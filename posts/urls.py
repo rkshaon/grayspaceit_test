@@ -3,5 +3,5 @@ from posts.views import posts, post_details
 
 urlpatterns = [
     path('', posts, name='posts'),
-    path('<int:post_id>/', post_details)
+    path('<int:post_id>/', post_details, name='post-details'),
 ]

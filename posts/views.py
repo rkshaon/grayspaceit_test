@@ -16,13 +16,14 @@ def posts(request):
 # POST DETAILS VIEW ENDPOINT
 @login_required(login_url='login')
 def post_details(request, post_id):
-    url = 'https://jsonplaceholder.typicode.com/posts/' + str(post_id)
-    response = requests.get(url)
-    post_data = response.json()
+    url_post = 'https://jsonplaceholder.typicode.com/posts/' + str(post_id)
+    response_post = requests.get(url_post)
+    post_data = response_post.json()
+    url_comment = 'https://jsonplaceholder.typicode.com/posts/' + str(post_id) + '/comments'
+    response_comment = requests.get(url_comment)
+    comment_data = response_comment.json()
     context = {
         'post': post_data,
+        'comments': comment_data,
     }
-    # context = {
-    #     'post_id': post_id,
-    # }
     return render(request, 'blog-post.html', context)
